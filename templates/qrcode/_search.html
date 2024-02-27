@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% block title %}Search QrCode{% endblock title %}
+{% block style %}
+.s{
+	width: 60%;
+	position: absolute;
+	/* left: 1; */
+	left: 20%;
+}    
+{% endblock style %}
+{% block body %}
+<form method="POST" action="">
+    {% csrf_token %}
+<div class="input-group mb-3 mt-4 s">
+    <input type="text" class="form-control" placeholder="Search Material" aria-label="Search" aria-describedby="basic-addon2" name="query">
+    <div class="input-group-append">
+        <input class="btn btn-success" type="submit" value="Search">
+        <a href="/qrcode_manage" class="btn btn-outline-danger">Back</a>
+    </div>
+  </div>  
+</form>
+
+{% if name %}
+<ol class="list-group list-group-numbered list-group-flushed list-group-item-dark result bg-gray-850">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">{{name}}</div>
+        Location: <strong>{{loc}}</strong>
+        <br>
+        Other: <strong>{{other}}</strong>
+      </div>
+      <span class="badge bg-primary rounded-pill">Quantity: {{qty}}</span>
+    </li>
+</ol>
+{% endif %}
+    
+{% endblock body %}  

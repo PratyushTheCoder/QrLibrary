@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block title %}Profile{% endblock title %}
+{% block style %}
+.btn{
+    margin-top:7px !important;
+}
+.card-body{
+    background:#1f2937;
+}
+{% endblock style %}
+{% block body %}
+<span class="card1 card position-absolute top-50 start-50 translate-middle mt-10" style="width: 18rem;">
+    <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg" class="card-img-top pro-img" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Profile</h5>
+      <p class="card-text">
+        Name: {{username}}
+      </br>
+        Email: {{email}}
+      </br>
+        Admin Status: {{admin_stat}}
+      </br>
+        Superuser Status: {{super_user_stat}}
+      </br>
+        Session: {{last_login}}
+      </br>
+        Created On: {{date_joined}}
+      {% comment %} </br>
+        Expiry Date: {{expiry}} {% endcomment %}
+      </p>
+      <a href="/change_password" class="btn btn-success">Change password</a>
+      <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+  </span>
+{% endblock body %}

@@ -1,0 +1,73 @@
+{% extends 'index.html' %}
+{% block title %}Create QrCode{% endblock title %}
+{% block style %}
+.ml{
+    margin-left: 4px; 
+    margin-top: 2px;
+    color: black;
+}
+.disabled{
+    color: white !important;
+}
+.card1 {
+  width: 23rem !important;
+  <!-- top: 9rem;
+  left: 31rem; -->
+  border-radius: 6px;
+  padding: 5px;
+}
+<!-- .card2 {
+  top: 6rem !important;
+} -->
+.pro-img{
+  height: 65px;
+  width: 68px;
+  position: absolute;
+  right: 1rem;
+  border-radius: 40px;
+}
+.card{
+  background-color: #3f4142;
+  color: white;
+}
+.card-input{
+  border-radius:5px;
+  color:black !important;
+}
+.w{
+  color:#0dcaf0;
+}
+{% endblock style %}
+{% block body %}
+<form method="POST" action="">
+    {% csrf_token %}
+   <span class="card1 card position-absolute top-50 start-50 translate-middle mt-10" style="width: 18rem;">
+    <!-- <img src="https://png.pngtree.com/png-clipart/20200224/original/pngtree-qr-code-vector-hidden-text-or-url-scanning-smartphone-technology-isolated-png-image_5204763.jpg" class="card-img-top pro-img1 mt-2" alt="..."> -->
+    <div class="card-body">
+      <h5 class="card-title">Create QrCode</h5>
+      <!-- <p class="card-text mt-5">
+
+      </p> -->
+    <p class="card-text">Material Name</p>
+    <input type="text" name="name" class="card-input text-gray-900"></input>
+</br>
+    <p class="card-text">Material Location</p>
+    <input type="text" name="loc" class="card-input text-gray-900"></input>
+</br>
+    <p class="card-text">Material Qty</p>
+    <input type="text" name="qty" class="card-input text-gray-900"></input>
+</br>
+    <p class="card-text">Other Specification</p>
+    <input type="text" name="other" class="card-input text-gray-900"></input>
+</br>
+    <input class="btn btn-success mt-4" type="submit" value="Create">
+      <a href="/qrcode_manage" class="btn btn-danger mt-4">Back</a>
+    </div>
+    {% if img_name %}
+    <img src="/qrcodes/{{ img_name }}" alt="qr code">
+    {% endif %}
+ </span>  
+</form>
+{% endblock body %}
+    
+    
